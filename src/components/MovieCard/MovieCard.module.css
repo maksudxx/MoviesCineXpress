@@ -1,0 +1,17 @@
+.movieCard {
+  list-style: none;
+  cursor: pointer;
+}
+
+.movieImg {
+  background: var(--bright-red-50);
+  width: 200px;
+  height: 320px;
+  border-radius: 20px;
+}
+
+.movieCard:hover{
+    transform: scale(1.06);
+    border-radius: 20px;
+}
+

@@ -1,0 +1,54 @@
+.CardContainer {
+  border: 2px solid #fff;
+  list-style: none;
+  width: 385px;
+  border-radius: 20px;
+  padding: 15px;
+  height: 220px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.CardContainer:hover{
+    transform: scale(1.02);
+}
+
+.Básico {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    333deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 35%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
+
+.Estandar {
+  background: rgb(22, 1, 54);
+  background: linear-gradient(
+    333deg,
+    rgba(22, 1, 54, 1) 8%,
+    rgba(179, 50, 201, 1) 100%
+  );
+}
+
+.Premium {
+  background: rgb(65, 22, 78);
+  background: linear-gradient(
+    299deg,
+    rgba(65, 22, 78, 1) 0%,
+    rgba(211, 23, 255, 1) 100%
+  );
+}
+.CardContainer h3{
+    margin: 15px 0;
+}
+.CardContainer ul{
+    padding: 0 15px;
+}
+.CardContainer ul>li{
+    font-weight: bold;
+    margin:0;
+}

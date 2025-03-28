@@ -1,0 +1,14 @@
+.fqContainer {
+  width: 85%;
+  margin-bottom: 40px;
+}
+.titleInfo {
+  font-size: 2.5rem;
+  text-align: flex-start;
+  font-weight: bold;
+  margin: 50px 0px 20px 0px;
+}
+.cardsFQContainer{
+    width: 100%;
+    padding: 0;
+}
