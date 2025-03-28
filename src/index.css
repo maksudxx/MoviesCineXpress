@@ -1,0 +1,20 @@
+:root {
+  --bright-red-50: #ffeeee;
+  --bright-red-100: #ffdada;
+  --bright-red-200: #ffbbbb;
+  --bright-red-300: #ff8b8b;
+  --bright-red-400: #ff4949;
+  --bright-red-500: #ff1111;
+  --bright-red-600: #ff0000;
+  --bright-red-700: #e70000;
+  --bright-red-800: #be0000;
+  --bright-red-900: #a80000;
+  --bright-red-950: #560000;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+body {
+  background: rgb(20, 20, 20);
+  color: #ffeeee;
+}
