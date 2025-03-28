@@ -1,4 +1,4 @@
-import styles from "../../Pages/LandingPage/LandingPage.module.css";
+import styles from "./LandingEmailForm.module.css";
 import { EmailForm } from "../EmailForm/EmailForm";
 export const LandingEmailForm = () => {
   return (

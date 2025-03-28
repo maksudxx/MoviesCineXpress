@@ -11,8 +11,8 @@
   justify-content: space-between;
 }
 
-.CardContainer:hover{
-    transform: scale(1.02);
+.CardContainer:hover {
+  transform: scale(1.02);
 }
 
 .Básico {
@@ -42,13 +42,20 @@
     rgba(211, 23, 255, 1) 100%
   );
 }
-.CardContainer h3{
-    margin: 15px 0;
+.CardContainer h3 {
+  margin: 15px 0;
 }
-.CardContainer ul{
-    padding: 0 15px;
+.CardContainer ul {
+  padding: 0 15px;
 }
-.CardContainer ul>li{
-    font-weight: bold;
-    margin:0;
+.CardContainer ul > li {
+  font-weight: bold;
+  margin: 0;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .CardContainer {
+    width: 300px;
+    padding: 10px;
+  }
 }

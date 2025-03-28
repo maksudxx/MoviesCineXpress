@@ -8,7 +8,20 @@
   font-weight: bold;
   margin: 50px 0px 20px 0px;
 }
-.cardsFQContainer{
+.cardsFQContainer {
+  width: 100%;
+  padding: 0;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .fqContainer {
+    width: 95%;
+    margin-bottom: 25px;
+  }
+  .titleInfo {
     width: 100%;
-    padding: 0;
+    font-size: 2em;
+    text-align: center;
+    margin: 30px 0 20px 0;
+  }
 }
