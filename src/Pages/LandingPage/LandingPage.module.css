@@ -10,17 +10,12 @@
   align-items: center;
 }
 
-
-
 /* Para pantallas muy pequeñas (móviles en modo retrato) */
 @media (min-width: 320px) and (max-width: 480px) {
   .containerLanding {
     width: 100%;
     border: 1px solid #fff
   }
-
-
-  
 }
 
 @media (min-width: 481px) and (max-width: 1000px) {
