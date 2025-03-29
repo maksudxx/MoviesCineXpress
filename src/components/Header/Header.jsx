@@ -1,4 +1,5 @@
 import { FaFilm } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
 export const Header = () => {
   const languages = [
@@ -20,13 +21,15 @@ export const Header = () => {
       </div>
       <div className={styles.containerOptionNavbar}>
         <select id="language-select" className={styles.selectLanguages}>
-          {languages.map(({code, name}) => (
+          {languages.map(({ code, name }) => (
             <option key={code} value={code}>
               {name}
             </option>
           ))}
         </select>
-        <div className={styles.buttonSigIn}>Iniciar Sesión</div>
+        <Link to="/login" className={styles.link}>
+          <p className={styles.buttonSigIn}>Iniciar Sesión</p>
+        </Link>
       </div>
     </header>
   );
