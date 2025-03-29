@@ -6,8 +6,6 @@ import { FQContainer } from "../../components/FQContainer/FQContainer";
 import { Plans } from "../../components/Plans/Plans";
 import styles from "./LandingPage.module.css";
 import { EmailForm } from "../../components/EmailForm/EmailForm";
-import { Footer } from "../../components/Footer/Footer";
-
 export const LandingPage = () => {
   return (
     <div className={styles.containerLanding}>
@@ -19,7 +17,6 @@ export const LandingPage = () => {
         <InfoLanding />
         <FQContainer />
         <EmailForm />
-        <Footer />
       </main>
     </div>
   );
