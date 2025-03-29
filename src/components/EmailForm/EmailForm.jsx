@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styles from "./EmailForm.module.css";
 
 export const EmailForm = () => {
@@ -14,7 +15,9 @@ export const EmailForm = () => {
           placeholder="Email"
           className={styles.inputEmail}
         />
-        <div className={styles.buttonStart}>Comenzar &gt;</div>
+        <Link to='/login' className={styles.link}>
+          <div className={styles.buttonStart}>Comenzar</div>
+        </Link>
       </div>
     </div>
   );
