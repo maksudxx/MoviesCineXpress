@@ -5,20 +5,19 @@ import { MovieCard } from "../MovieCard/MovieCard";
 
 // eslint-disable-next-line react/prop-types
 export const MoviesCarousel = ({ title }) => {
-  const [currentIndex, setCurrentIndex] = useState(Movies.length); // Inicia en el primer set duplicado
+  const [currentIndex, setCurrentIndex] = useState(0); // Inicia en la primera película
   const [itemsToShow, setItemsToShow] = useState(1);
   const containerRef = useRef(null);
-
-  // Duplicamos las películas al principio y al final
-  const duplicatedMovies = [...Movies, ...Movies, ...Movies];
 
   // Calcula cuántas tarjetas pueden caber según el ancho del contenedor
   const updateItemsToShow = () => {
     if (containerRef.current) {
-      const containerWidth = containerRef.current.offsetWidth; // Ancho del contenedor
-      const cardWidth = 270; // Ancho de la tarjeta incluyendo márgenes/padding
-      const visibleItems = Math.floor(containerWidth / cardWidth); // Número de tarjetas que caben
-      setItemsToShow(Math.max(visibleItems, 1)); // Al menos mostrar 1 tarjeta
+      const containerWidth = containerRef.current.offsetWidth;
+      const cardWidth = 280;
+      const visibleItems = Math.floor(containerWidth / cardWidth);
+
+      // Garantiza que no haya más elementos visibles de los disponibles
+      setItemsToShow(Math.min(visibleItems, Movies.length));
     }
   };
 
@@ -28,32 +27,32 @@ export const MoviesCarousel = ({ title }) => {
     return () => window.removeEventListener("resize", updateItemsToShow);
   }, []);
 
-  // Corrección para evitar saltos bruscos
-  useEffect(() => {
-    if (currentIndex === 0) {
-      setTimeout(() => {
-        setCurrentIndex(Movies.length); // Reubicar al último set original
-      }, 300); // Tiempo de transición
-    } else if (currentIndex === duplicatedMovies.length - itemsToShow) {
-      setTimeout(() => {
-        setCurrentIndex(Movies.length - itemsToShow); // Reubicar al primer set original
-      }, 100); // Tiempo de transición
-    }
-  }, [currentIndex, itemsToShow]);
-
   const handleNext = () => {
-    setCurrentIndex((prevIndex) => prevIndex + 1);
+    if (currentIndex + itemsToShow <= 3) {
+      // Evitar pasar el índice máximo
+      setCurrentIndex((prevIndex) => prevIndex + itemsToShow);
+    } else {
+      setCurrentIndex(3); // Fijar el índice máximo en 3
+    }
   };
 
   const handlePrev = () => {
-    setCurrentIndex((prevIndex) => prevIndex - 1);
+    if (currentIndex - itemsToShow >= 0) {
+      setCurrentIndex((prevIndex) => prevIndex - itemsToShow);
+    } else {
+      setCurrentIndex(0); // Evitar índices negativos
+    }
   };
-
+  console.log(currentIndex);
   return (
     <div className={styles.Container}>
       <div className={styles.title}>{title}</div>
       <div className={styles.mainContainer}>
-        <button className={styles.navButton} onClick={handlePrev}>
+        <button
+          className={styles.navButton}
+          onClick={handlePrev}
+          style={{ display: currentIndex === 0 ? "none" : "block" }} // Oculta si está en el índice 0
+        >
           {"<"}
         </button>
         <div className={styles.sliderContainer} ref={containerRef}>
@@ -64,12 +63,16 @@ export const MoviesCarousel = ({ title }) => {
               transition: "transform 0.3s ease-in-out",
             }}
           >
-            {duplicatedMovies.map(({ poster_path, id }, index) => (
+            {Movies.map(({ poster_path, id }, index) => (
               <MovieCard key={`${id}-${index}`} img={poster_path} />
             ))}
           </ul>
         </div>
-        <button className={styles.navButton} onClick={handleNext}>
+        <button
+          className={styles.navButton}
+          onClick={handleNext}
+          style={{ display: currentIndex >= 3 ? "none" : "block" }} // Oculta si está en el índice 8 o más
+        >
           {">"}
         </button>
       </div>
