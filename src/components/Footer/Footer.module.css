@@ -2,6 +2,7 @@
   width: 85%;
   color: #8f8f8f;
   font-weight: bold;
+  padding-left: 7.5%;
 }
 .optionsContainer {
   display: grid;
