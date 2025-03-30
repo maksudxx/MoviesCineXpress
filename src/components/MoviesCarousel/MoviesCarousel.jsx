@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import PropTypes from "prop-types"; // Importar PropTypes
+import PropTypes from "prop-types";  // Importar PropTypes
 import styles from "./MoviesCarousel.module.css";
 import Movies from "../../Movies.json";
 import { MovieCard } from "../MovieCard/MovieCard";
@@ -22,11 +22,9 @@ export const MoviesCarousel = ({ title }) => {
     }
 
     // Definir maxIndex dependiendo de la resolución
-    const isMobile = window.matchMedia(
-      "(min-width: 320px) and (max-width: 480px)"
-    ).matches;
+    const isMobile = window.matchMedia("(min-width: 320px) and (max-width: 480px)").matches;
     if (isMobile) {
-      setMaxIndex(10);
+      setMaxIndex(10); 
     } else {
       setMaxIndex(3);
     }
@@ -92,5 +90,5 @@ export const MoviesCarousel = ({ title }) => {
 
 // PropTypes para definir las propiedades del componente
 MoviesCarousel.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired, 
 };
