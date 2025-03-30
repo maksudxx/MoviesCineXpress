@@ -25,6 +25,7 @@
 @media (min-width: 320px) and (max-width: 480px) {
   .footerContainer {
     width: 100%;
+    padding: 10px;
   }
   .optionsContainer {
     grid-template-columns: repeat(2, 1fr); /* 4 columnas de igual tamaño */

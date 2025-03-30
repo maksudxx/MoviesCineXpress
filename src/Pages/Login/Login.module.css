@@ -34,7 +34,6 @@
 }
 
 .formLogin {
-  /* border: 1px solid #fff; */
   display: flex;
   flex-direction: column;
   justify-content: center;
