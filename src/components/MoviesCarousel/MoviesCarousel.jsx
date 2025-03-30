@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef } from "react";
+import PropTypes from "prop-types";  // Importar PropTypes
 import styles from "./MoviesCarousel.module.css";
 import Movies from "../../Movies.json";
 import { MovieCard } from "../MovieCard/MovieCard";
 
-// eslint-disable-next-line react/prop-types
 export const MoviesCarousel = ({ title }) => {
   const [currentIndex, setCurrentIndex] = useState(0); // Inicia en la primera película
   const [itemsToShow, setItemsToShow] = useState(1);
@@ -43,7 +43,7 @@ export const MoviesCarousel = ({ title }) => {
       setCurrentIndex(0); // Evitar índices negativos
     }
   };
-  console.log(currentIndex);
+
   return (
     <div className={styles.Container}>
       <div className={styles.title}>{title}</div>
@@ -78,4 +78,9 @@ export const MoviesCarousel = ({ title }) => {
       </div>
     </div>
   );
+};
+
+// PropTypes para definir las propiedades del componente
+MoviesCarousel.propTypes = {
+  title: PropTypes.string.isRequired, 
 };
