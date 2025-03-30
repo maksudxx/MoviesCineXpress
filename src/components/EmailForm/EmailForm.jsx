@@ -1,24 +1,33 @@
-import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
 import styles from "./EmailForm.module.css";
+import { useNavigate } from "react-router-dom";
 
 export const EmailForm = () => {
+  const { register, handleSubmit } = useForm();
+  const navigate = useNavigate();
+  
+  const onSubmit = handleSubmit((data) => {
+    console.log(data);
+    navigate("/login");
+  });
+
   return (
     <div className={styles.container}>
       <h3 className={styles.textLanding}>
         ¿Quieres ver CineXpress ya? Ingresa tu email para crear una cuenta o
         reiniciar tu membresia de CineXpress.
       </h3>
-      <div className={styles.emailContainer}>
+      <form className={styles.emailContainer} onSubmit={onSubmit}>
         <input
           type="email"
-          name="email"
           placeholder="Email"
           className={styles.inputEmail}
+          {...register("email", { required: true })}
         />
-        <Link to='/login' className={styles.link}>
-          <div className={styles.buttonStart}>Comenzar</div>
-        </Link>
-      </div>
+        <button type="submit" className={styles.buttonStart}>
+          Comenzar
+        </button>
+      </form>
     </div>
   );
 };
