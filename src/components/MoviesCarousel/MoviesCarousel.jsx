@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import PropTypes from "prop-types";  // Importar PropTypes
+import PropTypes from "prop-types"; // Importar PropTypes
 import styles from "./MoviesCarousel.module.css";
 import Movies from "../../Movies.json";
 import { MovieCard } from "../MovieCard/MovieCard";
@@ -8,6 +8,7 @@ export const MoviesCarousel = ({ title }) => {
   const [currentIndex, setCurrentIndex] = useState(0); // Inicia en la primera película
   const [itemsToShow, setItemsToShow] = useState(1);
   const containerRef = useRef(null);
+  const [maxIndex, setMaxIndex] = useState(3); // Default max index for larger screens
 
   // Calcula cuántas tarjetas pueden caber según el ancho del contenedor
   const updateItemsToShow = () => {
@@ -19,6 +20,16 @@ export const MoviesCarousel = ({ title }) => {
       // Garantiza que no haya más elementos visibles de los disponibles
       setItemsToShow(Math.min(visibleItems, Movies.length));
     }
+
+    // Definir maxIndex dependiendo de la resolución
+    const isMobile = window.matchMedia(
+      "(min-width: 320px) and (max-width: 480px)"
+    ).matches;
+    if (isMobile) {
+      setMaxIndex(10);
+    } else {
+      setMaxIndex(3);
+    }
   };
 
   useEffect(() => {
@@ -28,11 +39,10 @@ export const MoviesCarousel = ({ title }) => {
   }, []);
 
   const handleNext = () => {
-    if (currentIndex + itemsToShow <= 3) {
-      // Evitar pasar el índice máximo
+    if (currentIndex + itemsToShow <= maxIndex) {
       setCurrentIndex((prevIndex) => prevIndex + itemsToShow);
     } else {
-      setCurrentIndex(3); // Fijar el índice máximo en 3
+      setCurrentIndex(maxIndex); // Evitar pasar el índice máximo
     }
   };
 
@@ -71,7 +81,7 @@ export const MoviesCarousel = ({ title }) => {
         <button
           className={styles.navButton}
           onClick={handleNext}
-          style={{ display: currentIndex >= 3 ? "none" : "block" }} // Oculta si está en el índice 8 o más
+          style={{ display: currentIndex >= maxIndex ? "none" : "block" }} // Oculta si se ha alcanzado el índice máximo
         >
           {">"}
         </button>
@@ -82,5 +92,5 @@ export const MoviesCarousel = ({ title }) => {
 
 // PropTypes para definir las propiedades del componente
 MoviesCarousel.propTypes = {
-  title: PropTypes.string.isRequired, 
+  title: PropTypes.string.isRequired,
 };
