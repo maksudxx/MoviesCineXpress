@@ -1,5 +1,4 @@
 .headerContainer {
-  /* border: 1px solid red; */
   height: 120px;
   display: flex;
   padding: 0 150px;
@@ -33,7 +32,7 @@
 .selectLanguages {
   height: 40px;
   width: 150px;
-  border-radius: 20px;
+  border-radius: 15px;
   background: ghostwhite;
   text-align: center;
   border: none;
@@ -49,7 +48,7 @@
   height: 40px;
   border: none;
   width: 120px;
-  border-radius: 17px;
+  border-radius: 15px;
   background: var(--bright-red-700);
   color: #fff;
   font-weight: 500;
@@ -59,7 +58,7 @@
   cursor: pointer;
   opacity: 0.7;
 }
-.link{
+.link {
   color: inherit;
   text-decoration: none;
 }
@@ -71,7 +70,6 @@
 /* Para pantallas muy pequeñas (móviles en modo retrato) */
 @media (min-width: 320px) and (max-width: 480px) {
   .headerContainer {
-    /* border: 1px solid #fff; */
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -97,7 +95,7 @@
     width: 95px;
     height: 30px;
   }
-  .buttonSigIn{
+  .buttonSigIn {
     width: 95px;
     height: 30px;
     font-size: 0.8rem;
