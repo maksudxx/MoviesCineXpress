@@ -1,3 +1,4 @@
+import { FaFilm } from "react-icons/fa";
 import styles from "./Login.module.css";
 import { Link } from "react-router-dom";
 
@@ -6,6 +7,12 @@ export const Login = () => {
     <>
       <main className={styles.loginContainer}>
         <div className={styles.formLoginContainer}>
+          <Link to='/'className={styles.link}>
+            <div className={styles.containerNavbarTitle}>
+              <FaFilm className={styles.containerNavbarTitleIcon} />
+              <div className={styles.titleLogo}>CineXpress</div>
+            </div>
+          </Link>
           <div className={styles.formLogin}>
             <p className={styles.title}>Iniciar Sesión</p>
             <input
@@ -47,9 +54,11 @@ export const Login = () => {
           </p>
           <p className={styles.textLogin2}>
             Esta página esta protegida por Google reCAPTCHA para comprobar que
-            no eres un robot. <Link to="/" className={styles.link}>Más info.</Link>
+            no eres un robot.{" "}
+            <Link to="/" className={styles.link}>
+              Más info.
+            </Link>
           </p>
-          
         </div>
       </main>
     </>

@@ -1,13 +1,12 @@
 /* Fondo principal de la página */
 .loginContainer {
-  height: 920px;
   background-image: url("../../Assets/peliculas1.jpg");
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 100px;
 }
-
 
 .formLoginContainer {
   position: relative;
@@ -19,7 +18,9 @@
   align-items: center;
   padding: 50px 0;
 }
-
+.containerNavbarTitle {
+  display: none;
+}
 .formLoginContainer::before {
   content: "";
   position: absolute;
@@ -49,7 +50,7 @@
   margin-top: 0;
 }
 
-.inputs{
+.inputs {
   width: 100%;
   height: 60px;
   font-size: 20px;
@@ -61,56 +62,116 @@
 .inputLogin {
   border-radius: 10px;
   background-color: rgba(37, 37, 37, 0.5);
-  color: rgba(0, 0, 0, 0.7); 
-  border: 2px solid #fff; 
+  color: rgba(0, 0, 0, 0.7);
+  border: 2px solid #fff;
   color: #fff;
   padding-left: 30px;
   box-sizing: border-box;
 }
 
-.buttonLogin{
+.buttonLogin {
   background: var(--bright-red-700);
   color: #fff;
   cursor: pointer;
   margin-bottom: 0;
 }
 
-.buttonLogin:hover{
+.buttonLogin:hover {
   opacity: 0.8;
 }
 
-.buttonLogin2{
+.buttonLogin2 {
   background-color: rgba(97, 97, 97, 0.8);
   color: #fff;
   cursor: pointer;
 }
-.buttonLogin2:hover{
+.buttonLogin2:hover {
   opacity: 0.8;
 }
 
-.textLogin{
+.textLogin {
   font-size: 20px;
 }
-.link{
+.link {
   color: inherit;
 }
 .link:focus,
 .link:active {
   outline: none;
 }
-.link:hover{
+.link:hover {
   opacity: 0.7;
 }
 
-.checkboxLogin{
+.checkboxLogin {
   width: 80%;
 }
 
-.checkbox{
+.checkbox {
   transform: scale(1.5);
   margin-right: 15px;
 }
 
-.textLogin2{
+.textLogin2 {
   width: 85%;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .loginContainer {
+    background: #000;
+    width: 100%;
+    padding: 0;
+  }
+  .formLoginContainer {
+    width: 100%;
+  }
+  .formLogin {
+    width: 90%;
+  }
+  .title {
+    margin-bottom: 20px;
+  }
+  .containerNavbarTitle {
+    display: block;
+    display: flex;
+    text-shadow: 4px 4px 6px rgba(255, 73, 73, 1);
+    font-size: 20px;
+    cursor: pointer;
+    height: 80px;
+    margin-top: 20px;
+  }
+  .titleLogo {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-left: 10px;
+  }
+  .containerNavbarTitleIcon {
+    font-size: 40px;
+  }
+  .formLoginContainer {
+    padding: 0;
+  }
+  .textLogin {
+    width: 100%;
+    font-size: 18px;
+    text-align: center;
+  }
+  .textLogin2 {
+    width: 90%;
+    margin-bottom: 20px;
+    text-align: start;
+  }
+  .checkboxLogin {
+    width: 90%;
+    text-align: start;
+  }
+  .link{
+    color: inherit;
+    text-decoration: none;
+    width: 90%;
+  }
+  .link:focus,
+  .link:active {
+    outline: none;
+  }
 }
