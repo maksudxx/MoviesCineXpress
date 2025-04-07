@@ -7,8 +7,8 @@ export const EmailForm = () => {
   const navigate = useNavigate();
   
   const onSubmit = handleSubmit((data) => {
-    console.log(data);
-    navigate("/login");
+    const {email} = data
+    navigate("/signup/registration", {state: {email}});
   });
 
   return (
