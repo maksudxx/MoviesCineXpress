@@ -5,10 +5,10 @@ import { useNavigate } from "react-router-dom";
 export const EmailForm = () => {
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
-  
+
   const onSubmit = handleSubmit((data) => {
-    const {email} = data
-    navigate("/signup/registration", {state: {email}});
+    const { email } = data;
+    navigate("/signup/registration", { state: { email } });
   });
 
   return (
