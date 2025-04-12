@@ -1,25 +1,25 @@
 import { FaFilm } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./Header.module.css";
-
 export const Header = () => {
-  const navigate = useNavigate();
-
   const languages = [
     { code: "es", name: "Español" },
-    { code: "en", name: "Inglés" },
+    { code: "en", name: "Ingles" },
   ];
+
+  const navigate = useNavigate();
 
   return (
     <header className={styles.headerContainer}>
-      <button
+      <div
         className={styles.containerNavbarTitle}
-        onClick={() => navigate("/")}
+        onClick={() => {
+          navigate("/");
+        }}
       >
         <FaFilm className={styles.containerNavbarTitleIcon} />
-        <span className={styles.titleLogo}>CineXpress</span>
-      </button>
-
+        <div className={styles.titleLogo}>CineXpress</div>
+      </div>
       <div className={styles.containerOptionNavbar}>
         <select id="language-select" className={styles.selectLanguages}>
           {languages.map(({ code, name }) => (
@@ -28,9 +28,8 @@ export const Header = () => {
             </option>
           ))}
         </select>
-
         <Link to="/login" className={styles.link}>
-          <span className={styles.buttonSigIn}>Iniciar Sesión</span>
+          <p className={styles.buttonSigIn}>Iniciar Sesión</p>
         </Link>
       </div>
     </header>
