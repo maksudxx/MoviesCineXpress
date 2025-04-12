@@ -9,8 +9,8 @@ export const Registration = () => {
   const { email } = state;
   const navigate = useNavigate();
 
-  const onSubmit = () => {
-    navigate("/signup/registration", {state: {email}});
+  const nextUrl = () => {
+    navigate("/signup/register", { state: { email } });
   };
 
   return (
@@ -27,9 +27,9 @@ export const Registration = () => {
           <h1>Completa la configuración de tu cuenta</h1>
           <p>CineXpress está personalizado para ti.</p>
           <p>Crea una contraseña para comenzar a ver CineXpress.</p>
-          <Link to="/signup/register" className={styles.link}>
-            <div className={styles.buttonNext} onClick={onsubmit}>Siguiente</div>
-          </Link>
+          <div className={styles.buttonNext} onClick={nextUrl}>
+            Siguiente
+          </div>
         </div>
       </div>
     </>
