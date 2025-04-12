@@ -23,6 +23,7 @@
 .link {
   color: inherit;
   text-decoration: none;
+  width: 90%;
 }
 .buttonNext {
   display: flex;
@@ -30,7 +31,24 @@
   align-items: center;
   border-radius: 10px;
   margin: 50px 0;
-  width: 250px;
-  height: 50px;
+  height:70px;
   background: var(--bright-red-700);
+  font-size: 20px;
+  font-weight: bold;
+}
+.buttonNext:hover{
+    opacity: 0.7 
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .registration {
+        width: 90%;
+        margin: 50px 0
+    }
+    .imgDevices{
+        width: 100%;
+    }
+    .buttonNext {
+        margin: 35px 0
+    }
 }
