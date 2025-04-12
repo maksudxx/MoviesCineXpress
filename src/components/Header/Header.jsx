@@ -1,21 +1,21 @@
 import { FaFilm } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./Header.module.css";
 export const Header = () => {
   const languages = [
     { code: "es", name: "Español" },
     { code: "en", name: "Ingles" },
-    { code: "fr", name: "Frances" },
-    { code: "pt", name: "Portugues" },
-    { code: "ja", name: "Japones" },
-    { code: "de", name: "Alemán" },
-    { code: "ko", name: "Koreano" },
-    { code: "it", name: "Italiano" },
   ];
+
+  const navigate = useNavigate();
+
+  const mainPage = () => {
+    navigate("/");
+  };
 
   return (
     <header className={styles.headerContainer}>
-      <div className={styles.containerNavbarTitle}>
+      <div className={styles.containerNavbarTitle} onClick={mainPage}>
         <FaFilm className={styles.containerNavbarTitleIcon} />
         <div className={styles.titleLogo}>CineXpress</div>
       </div>
