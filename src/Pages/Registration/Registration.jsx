@@ -9,10 +9,6 @@ export const Registration = () => {
   const { email } = state;
   const navigate = useNavigate();
 
-  const nextUrl = () => {
-    navigate("/signup/register", { state: { email } });
-  };
-
   return (
     <>
       <Header />
@@ -27,7 +23,7 @@ export const Registration = () => {
           <h1>Completa la configuración de tu cuenta</h1>
           <p>CineXpress está personalizado para ti.</p>
           <p>Crea una contraseña para comenzar a ver CineXpress.</p>
-          <div className={styles.buttonNext} onClick={nextUrl}>
+          <div className={styles.buttonNext} onClick={()=>{navigate("/signup/register", { state: { email } });}}>
             Siguiente
           </div>
         </div>
