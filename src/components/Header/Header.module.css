@@ -32,7 +32,7 @@
 .selectLanguages {
   height: 40px;
   width: 150px;
-  border-radius: 15px;
+  border-radius: 8px;
   background: ghostwhite;
   text-align: center;
   border: none;
@@ -48,7 +48,7 @@
   height: 40px;
   border: none;
   width: 120px;
-  border-radius: 15px;
+  border-radius: 8px;
   background: var(--bright-red-700);
   color: #fff;
   font-weight: 500;
