@@ -1,0 +1,56 @@
+.mainContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 27%;
+  margin: 100px 0;
+  overflow: hidden;
+}
+
+.container p {
+  margin: 0;
+}
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+.inputsForm{
+    width: 100%;
+    margin: 5px 0;
+    height: 60px;
+    padding-left: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.buttonSubmit{
+  width: 100%;
+  margin: 20px 0;
+  height: 60px;
+  border-radius: 10px;
+  font-size: 18px;
+  background: var(--bright-red-700);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.buttonSubmit:hover{
+    opacity: 0.7;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .container {
+        width: 90%;
+        margin: 50px 0;
+    }
+}
