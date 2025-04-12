@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Header } from "../../components/Header/Header";
 import imgDevice from "../../Assets/Devices.png";
 import styles from "./Registration.module.css";
@@ -7,6 +7,11 @@ import styles from "./Registration.module.css";
 export const Registration = () => {
   const { state } = useLocation();
   const { email } = state;
+  const navigate = useNavigate();
+
+  const onSubmit = () => {
+    navigate("/signup/registration", {state: {email}});
+  };
 
   return (
     <>
@@ -22,8 +27,8 @@ export const Registration = () => {
           <h1>Completa la configuración de tu cuenta</h1>
           <p>CineXpress está personalizado para ti.</p>
           <p>Crea una contraseña para comenzar a ver CineXpress.</p>
-          <Link to="/" className={styles.link}>
-            <div className={styles.buttonNext}>Siguiente</div>
+          <Link to="/signup/register" className={styles.link}>
+            <div className={styles.buttonNext} onClick={onsubmit}>Siguiente</div>
           </Link>
         </div>
       </div>
