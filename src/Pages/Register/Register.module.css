@@ -13,7 +13,9 @@
   margin: 100px 0;
   overflow: hidden;
 }
-
+.container span{
+  color: var(--bright-red-400);
+}
 .container p {
   margin: 0;
 }
