@@ -5,6 +5,7 @@ import { LandingPage } from "./Pages/LandingPage/LandingPage";
 import { Login } from "./Pages/Login/Login";
 import { Register } from "./Pages/Register/Register";
 import { Registration } from "./Pages/Registration/Registration";
+import { VerifyEmail } from "./Pages/VerifyEmail/VerifyEmail";
 
 export const App = () => {
   const routes = [
@@ -12,6 +13,7 @@ export const App = () => {
     { path: "/login", element: <Login /> },
     { path: "/signup/registration", element: <Registration /> },
     { path: "/signup/register", element: <Register /> },
+    { path: "/signup/verifyemail", element: <VerifyEmail /> },
   ];
 
   return (
