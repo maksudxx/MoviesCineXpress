@@ -6,7 +6,20 @@ import styles from "./Register.module.css";
 export const Register = () => {
   const { state } = useLocation();
   const { email } = state;
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      email,
+    },
+  });
+
+  const onSubmit = handleSubmit((data) => {
+    console.log(data);
+  });
+
   return (
     <>
       <Header />
@@ -16,14 +29,31 @@ export const Register = () => {
           <h1>Crea una contraseña para que comiences tu membresía</h1>
           <p>¡Unos pasos más y listo!</p>
           <p>Tampoco nos gustan los trámites.</p>
-          <form action="onSubmit" className={styles.formContainer}>
+          <form onSubmit={onSubmit} className={styles.formContainer}>
             <input
               type="email"
-              value={email}
               placeholder="Agrega un correo"
               className={styles.inputsForm}
+              {...register("email", {
+                required: {
+                  value: true,
+                  message: "El correo es obligatorio",
+                },
+              })}
             />
-            <input type="password" placeholder="Agrega una contraseña" className={styles.inputsForm}/>
+            {errors.email && <span>{errors.email.message}</span>}
+            <input
+              type="password"
+              placeholder="Agrega una contraseña"
+              className={styles.inputsForm}
+              {...register("password", {
+                required: {
+                  value: true,
+                  message: "La contraseña es obligatoria",
+                },
+              })}
+            />
+            {errors.password && <span>{errors.password.message}</span>}
             <input type="submit" className={styles.buttonSubmit} />
           </form>
         </div>
