@@ -1,10 +1,11 @@
 import { MdOutlineVerifiedUser } from "react-icons/md";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Header } from "../../components/Header/Header";
 import styles from "./VerifyEmail.module.css";
 export const VerifyEmail = () => {
   const { state } = useLocation();
   const { email } = state;
+  const navigate = useNavigate()
   return (
     <>
       <Header />
@@ -16,8 +17,8 @@ export const VerifyEmail = () => {
           <p>PASO 2 DE 4</p>
           <h1>¡Excelente! Ahora verifiquemos tu email</h1>
           <p>
-            Haz clic en el enlace que enviamos a {email} para completar la
-            verificación.
+            Haz clic en el enlace que enviamos a <strong>{email}</strong> para
+            completar la verificación.
           </p>
           <p>
             Al verificar tu email, podrás mejorar la seguridad de la cuenta y
@@ -27,6 +28,7 @@ export const VerifyEmail = () => {
             className={styles.btnSkip}
             onClick={() => {
               alert("proximamente :) ♥");
+              navigate("/")
             }}
           >
             Omitir
