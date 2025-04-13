@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Header } from "../../components/Header/Header";
 import { useForm } from "react-hook-form";
 import styles from "./Register.module.css";
@@ -15,9 +15,11 @@ export const Register = () => {
       email,
     },
   });
+  const navigate = useNavigate();
 
   const onSubmit = handleSubmit((data) => {
-    console.log(data);
+    const { email } = data;
+    navigate("/signup/verifyEmail", { state: { email } });
   });
 
   return (
