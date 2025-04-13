@@ -33,7 +33,7 @@ export const Login = () => {
               Usar un código de inicio de sesión
             </button>
             <p className={styles.textLogin}>
-              <Link to="/" className={styles.link}>
+              <Link to="/loginHelp" className={styles.link}>
                 ¿Olvidaste la contraseña?
               </Link>
             </p>
