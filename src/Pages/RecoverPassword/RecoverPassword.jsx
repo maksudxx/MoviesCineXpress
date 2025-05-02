@@ -5,13 +5,23 @@ import { Header } from "../../Components/Header/Header";
 import styles from "./RecoverPassword.module.css";
 
 export const RecoverPassword = () => {
-  const { register, watch } = useForm({
+  const {
+    register,
+    watch,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
     defaultValues: {
       opcion: "Email",
     },
   });
-  
+
   const opcionSeleccionada = watch("opcion");
+
+  const onSubmit = handleSubmit((data) => {
+    const { type } = data;
+    alert(type);
+  });
 
   useEffect(() => {
     if (opcionSeleccionada) {
@@ -26,12 +36,34 @@ export const RecoverPassword = () => {
     const texto = isEmail
       ? "Te enviaremos un email con instrucciones para restablecer tu contraseña."
       : "Te enviaremos un SMS con el código de verificación para que restablezcas tu contraseña. Pueden aplicar tarifas de SMS y datos.";
+    const message = isEmail
+      ? "El correo es obligatorio"
+      : "El número de celular es obligatorio";
+    const type = isEmail ? "email" : "text";
+    const value = isEmail ? "email" : "telefono";
 
     return (
       <div>
         <p>{texto}</p>
-        <input type={isEmail ? "email" : "text"} placeholder={placeholder} className={styles.inputText} />
-        <input type="submit" value={buttonText} className={styles.buttonSubmit} />
+        <input
+          type={type}
+          placeholder={placeholder}
+          className={styles.inputText}
+          {...register(value, {
+            required: {
+              value: true,
+              message: message,
+            },
+          })}
+        />
+        {errors?.[value] && (
+          <span className={styles.errorText}>{errors[value].message}</span>
+        )}
+        <input
+          type="submit"
+          value={buttonText}
+          className={styles.buttonSubmit}
+        />
       </div>
     );
   };
@@ -42,7 +74,7 @@ export const RecoverPassword = () => {
       <div className={styles.mainContainer}>
         <div className={styles.container}>
           <h1>Actualizar la contraseña, el email o el teléfono</h1>
-          <form className={styles.formContainer}>
+          <form className={styles.formContainer} onSubmit={onSubmit}>
             <p>¿Cómo te gustaría recuperarla?</p>
             <div className={styles.radioContainer}>
               {["Email", "Mensaje de texto"].map((opcion) => (
@@ -60,7 +92,9 @@ export const RecoverPassword = () => {
             {opcionSeleccionada && renderInput()}
           </form>
 
-          <Link to="/" className={styles.link}>No me acuerdo de mi email ni de mi teléfono.</Link>
+          <Link to="/" className={styles.link}>
+            No me acuerdo de mi email ni de mi teléfono.
+          </Link>
         </div>
 
         <p className={styles.textCaptcha}>
