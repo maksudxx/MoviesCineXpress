@@ -7,7 +7,10 @@ export const InfoLanding = () => {
       <ul className={styles.containerCardsInfo}>
         <li className={styles.cardInfo}>
           <h2>Disfruta en tu TV</h2>
-          <p>Chromecast, Apple TV, reproductores de Blu-ray y más.</p>
+          <p>
+            Ve en smart TV, PlayStation, Xbox, Chromecast, Apple TV,
+            reproductores de Blu-ray y más.
+          </p>
           <svg width="72" height="72" viewBox="0 0 72 72" fill="none">
             <g id="television-core-small">
               <path
